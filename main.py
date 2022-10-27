@@ -20,3 +20,5 @@ if b is not None:
 for i in splitdata[1:]:
     text_contents = i
     st.download_button(f"{i.split()[0]}", text_contents)
+
+st.write("Enjoy!")
