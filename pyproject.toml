@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dots"
+version = "0.1.0"
+description = ""
+authors = ["Nick"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.13.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
