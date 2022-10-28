@@ -2,6 +2,7 @@ import streamlit as st
 import csv
 from io import StringIO
 from zipfile import ZipFile
+from io import BytesIO
 
 st.header("Batch Dot Phrase Wizard")
 
@@ -17,16 +18,17 @@ if b is not None:
     string_data = stringio.read()
     splitdata = string_data.split()
     st.write(splitdata)
-    zipObj = ZipFile("dotfiles.zip", "w")
+    with io.BytesIO() as buffer:
+    # Write the zip file to the buffer
+        with ZipFile(buffer, "w") as zip:
+            for i in splitdata[1:]:
+                name = f"{i.split()[0]}.txt"
+                zip.write(name)
 
-    for i in splitdata[1:]:
-        #text_contents = i
-        #st.download_button(f"{i.split()[0]}", text_contents, f"{i.split()[0]}.txt" )
-        fname = f"{i.split()[0]}.txt"
-        with open(fname, "w") as txtfile:
-            zipObj.write(txtfile)
-
-    zipObj.close()
-    st.download_button("Download your Zipfile", zipObj, "dotfiles.zip")
+        btn = st.download_button(
+        label="Download ZIP",
+        data=buffer,  # Download buffer
+        file_name="file.zip"
+        )
 
 st.write("Enjoy!")
