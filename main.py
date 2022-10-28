@@ -23,8 +23,7 @@ if b is not None:
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
                 name = f"{i.split()[0]}.txt"
-                with open(name, "w") as txtfile:
-                    zip.write(txtfile)
+                zip.writestr(name)
 
         btn = st.download_button(
         label="Download ZIP",
