@@ -25,7 +25,7 @@ def legalizer(s: str) -> str:
             s = s.replace("\t", "")
         except:
             continue
-    return s.strip()
+    return s
 
 
 st.header("Batch Dot Phrase Wizard")
