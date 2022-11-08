@@ -6,6 +6,7 @@ from io import BytesIO
 
 
 def legalizer(s: str) -> str:
+    gotit = []
     dct = {}
     dct["<"] = "{less}"
     dct[">"] = "{greater}"
@@ -22,7 +23,7 @@ def legalizer(s: str) -> str:
             dct[char]
             s = s.replace(char, dct[char])
         except:
-            continue
+            pass
     return s
 
 
