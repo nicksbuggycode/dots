@@ -37,15 +37,15 @@ if b is not None:
 
     # To read file as string:
     st.write("The contents of your csv file are displayed below:")
-    string_data = legalizer(stringio.read())
+    string_data = stringio.read()
     splitdata = string_data.split("\n")
     for data in splitdata:
-        st.write(data)
+        st.write(legalizer(data))
     with BytesIO() as buffer:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
-                name = f"{legalizer(i)}.tx"
+                name = f"{legalizer(i)}.txt"
                 zip.writestr(name, "file contents")
 
         btn = st.download_button(
