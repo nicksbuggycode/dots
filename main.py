@@ -45,11 +45,15 @@ if b is not None:
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
                 name = f"{legalizer(i).strip()}"
+            try:
                 desc, dotphrase, fulltxt, cat, author = name.split(",")
                 dotFilename = f"Desc = {desc}; Dotphrase = {dotphrase}; Fulltext = {fulltxt}; Cat = {cat}; Authr = {author}.bstr"
                 st.write(dotFilename)
-
                 zip.writestr(dotFilename, name)
+            except:
+                st.write(f"couldn't format {i}")
+
+                
 
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
