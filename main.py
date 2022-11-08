@@ -46,14 +46,13 @@ if b is not None:
                 name = f"{legalizer(i).strip()}"
                 try:
                     desc, dotphrase, fulltxt, cat, author = name.split(",")
+                    contents = f"{desc}\n{dotphrase}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
                     dotFilename = f"Desc = {desc}; Dotphrase = {dotphrase}; Fulltext = {fulltxt}; Cat = {cat}; Authr = {author}.bstr"
                     st.write(dotFilename)
-                    zip.writestr(dotFilename, name)
+                    zip.writestr(dotFilename, contents)
                 except:
                     st.write(f"couldn't format {i}")
                     continue
-
-                
 
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
