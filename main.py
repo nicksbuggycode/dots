@@ -46,7 +46,7 @@ if b is not None:
             for i in splitdata[1:]:
                 name = f"{legalizer(i).strip()}"
                 desc, dotphrase, fulltxt, cat, author = name.split(",")
-                dotFilename = f"Desc = {desc}; Dotphrase = {dotphrase}; Fulltext = {fulltxt}; Cat = {cat}; Authr = {suthor}.bstr"
+                dotFilename = f"Desc = {desc}; Dotphrase = {dotphrase}; Fulltext = {fulltxt}; Cat = {cat}; Authr = {author}.bstr"
                 st.write(dotFilename)
 
                 zip.writestr(dotFilename, name)
