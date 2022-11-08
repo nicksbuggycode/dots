@@ -39,6 +39,7 @@ if b is not None:
     # To read file as string:
     st.write("The contents of your csv file are displayed below:")
     string_data = stringio.read()
+    splitdata = string_data.split("\n")
     st.write(string_data)
     with BytesIO() as buffer:
         # Write the zip file to the buffer
