@@ -23,7 +23,7 @@ def legalizer(s: str) -> str:
         try:
             word = dct[word]
         except:
-            pass
+            continue
     
     return "".join(s_words)
         
