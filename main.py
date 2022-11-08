@@ -21,8 +21,6 @@ def legalizer(s: str) -> str:
         try:
             dct[i]
             s = s.replace(i, dct[i])
-            s = s.replace("\n", "")
-            s = s.replace("\t", "")
         except:
             continue
     return s
