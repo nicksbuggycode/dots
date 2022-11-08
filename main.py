@@ -20,6 +20,7 @@ def legalizer(s: str) -> str:
     for k,v in dct.items():
         if k in s:
             s = s.replace(k,v)
+    return s
 
 
 
