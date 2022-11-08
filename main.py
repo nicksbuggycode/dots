@@ -20,6 +20,8 @@ def legalizer(s: str) -> str:
     for char in s:
         if dct[char]:
             s = s.replace(char, dct[char])
+        else:
+            continue
     return s
 
 
