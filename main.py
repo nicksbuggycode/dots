@@ -6,6 +6,7 @@ from io import BytesIO
 
 
 def legalizer(s: str) -> str:
+    s_words = s.split(" ")
     gotit = []
     dct = {}
     dct["<"] = "{less}"
@@ -18,13 +19,13 @@ def legalizer(s: str) -> str:
     dct["?"] = "{qstmrk}"
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
-    for char in s:
+    for word in s_words:
         try:
             dct[char]
-            s = s.replace(char, dct[char])
+            word = word.replace(char, dct[char])
         except:
             pass
-    return s
+    return s_words
 
 
 st.header("Batch Dot Phrase Wizard")
