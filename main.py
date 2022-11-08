@@ -17,9 +17,9 @@ def legalizer(s: str) -> str:
     dct["?"] = "{qstmrk}"
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
-    for k,v in dct:
+    for k in dct:
         if k in s:
-            s.replace(k,v)
+            s.replace(k, dct[k])
     return s
 
 
