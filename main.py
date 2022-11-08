@@ -46,6 +46,7 @@ if b is not None:
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
                 name = f"{legalizer(i)}.bstr"
+                st.write(f"name: {name}")
                 zip.writestr(name, name)
 
         btn = st.download_button(
