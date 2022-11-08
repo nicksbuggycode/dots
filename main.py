@@ -38,15 +38,15 @@ if b is not None:
     string_data = stringio.read()
     splitdata = string_data.split("\n")
     for i in splitdata:
-        st.write(legalizer(i)) 
+        legalized = legalizer(i)
+        st.write(legalized) 
     st.write("all data written")
     with BytesIO() as buffer:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
-                oneline = i.strip("\n").strip("\t")
                 name = f"{legalizer(i)}.bstr"
-                zip.writestr(name, oneline)
+                zip.writestr(name, name)
 
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
