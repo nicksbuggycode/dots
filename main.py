@@ -17,11 +17,10 @@ def legalizer(s: str) -> str:
     dct["?"] = "{qstmrk}"
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
-    for k,v in dct.items():
+    for k, v in dct.items():
         if k in s:
-            s = s.replace(k,v)
+            s = s.replace(k, v)
     return s
-
 
 
 st.header("Batch Dot Phrase Wizard")
@@ -39,15 +38,18 @@ if b is not None:
     splitdata = string_data.split("\n")
     for i in splitdata:
         legalized = legalizer(i)
-        st.write(legalized) 
+        st.write(legalized)
     st.write("all data written")
     with BytesIO() as buffer:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
-                name = f"{legalizer(i).strip()}.bstr"
-                st.write(f"name: {name}")
-                zip.writestr(name, name)
+                name = f"{legalizer(i).strip()}"
+                desc, dotphrase, fulltxt, cat, author = name.split(",")
+                dotFilename = f"Desc = {desc}; Dotphrase = {dotphrase}; Fulltext = {fulltxt}; Cat = {cat}; Authr = {suthor}.bstr"
+                st.write(dotFilename)
+
+                zip.writestr(dotFilename, name)
 
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
