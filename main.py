@@ -18,9 +18,10 @@ def legalizer(s: str) -> str:
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
     for char in s:
-        if dct[char]:
+        try:
+            dct[char]
             s = s.replace(char, dct[char])
-        else:
+        except:
             continue
     return s
 
