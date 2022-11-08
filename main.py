@@ -44,8 +44,9 @@ if b is not None:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
-                name = f"{i}.txt"
-                zip.writestr(name, "file contents")
+                oneline = i.strip("\n").strip("\t")
+                name = f"{legalizer(i)}.bstr"
+                zip.writestr(name, oneline)
 
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
