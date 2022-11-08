@@ -39,7 +39,7 @@ if b is not None:
 
     # To read file as string:
     st.write("The contents of your csv file are displayed below:")
-    string_data = stringio.read()
+    string_data = "".join(stringio.read())
     splitdata = string_data
     for data in splitdata:
         st.write(legalizer(data))
