@@ -35,7 +35,7 @@ if b is not None:
     # To read file as string:
     st.write("The contents of your csv file are displayed below:")
     string_data = stringio.read()
-    splitdata = string_data.split("\n")
+    splitdata = [i for i in string_data.split("\n") if len(i) > 0]
     st.table(splitdata)
     st.write("all data written")
     with BytesIO() as buffer:
