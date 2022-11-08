@@ -40,7 +40,7 @@ if b is not None:
     st.write("The contents of your csv file are displayed below:")
     string_data = stringio.read()
     splitdata = string_data.split("\n")
-    st.write(string_data)
+    st.write(splitdata)
     with BytesIO() as buffer:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
