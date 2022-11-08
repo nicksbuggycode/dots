@@ -21,7 +21,7 @@ def legalizer(s: str) -> str:
     dct[";"] = "{semi}"
     for word in s_words:
         try:
-            word = word.replace(word, dct[word])
+            word = dct[word]
         except:
             pass
     
