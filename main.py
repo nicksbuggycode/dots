@@ -41,7 +41,7 @@ if b is not None:
     string_data = stringio.read()
     splitdata = string_data.split("\n")
     for data in splitdata:
-        st.write(legalizer(data))
+        st.write(data)
     with BytesIO() as buffer:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
