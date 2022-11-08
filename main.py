@@ -45,7 +45,7 @@ if b is not None:
         # Write the zip file to the buffer
         with ZipFile(buffer, "w") as zip:
             for i in splitdata[1:]:
-                name = f"{legalizer(i)}.bstr"
+                name = f"{legalizer(i).strip()}.bstr"
                 st.write(f"name: {name}")
                 zip.writestr(name, name)
 
