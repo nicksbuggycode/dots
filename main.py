@@ -58,5 +58,11 @@ if b is not None:
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
         )
+    
+    st.write("CSV parsing try")
+    #parse csv
+    reader = csv.reader(stringio, delimiter=",", quotechar='"')
+    for row in reader:
+        st.table(row)
 
 st.write("Enjoy!")
