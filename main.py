@@ -17,7 +17,7 @@ def legalizer(s: str) -> str:
     dct["?"] = "{qstmrk}"
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
-    dct["\n"] = "{Lbreak}"
+    dct["\n"] = ""
     dct["\r"] = ""
     dct["\t"] = ""
     for k, v in dct.items():
@@ -51,7 +51,8 @@ if b is not None:
                         ","
                     )
                     desc, dotphrase, fulltxt, cat, author, discard = i.split(",")
-                    contents = f"{desc}\n{dotphrase}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
+                    dpContent = dotphrase.replace("\n","{Lbreak}")
+                    contents = f"{desc}\n{dpContent}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
                     dotFilename = f"Desc = {Ldesc}; Dotphrase = {Ldotphrase}; Fulltext = {Lfulltxt}; Cat = {Lcat}; Authr = {Lauthor}.bstr"
                     st.write(dotFilename)
                     zip.writestr(dotFilename, contents)
