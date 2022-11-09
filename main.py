@@ -60,7 +60,7 @@ if b is not None:
     
     st.write("CSV parsing try")
     #parse csv
-    reader = csv.reader(stringio, delimiter=",")
+    reader = csv.reader(string_data, delimiter=",")
     for row in reader:
         print(row)
         st.write(row)
