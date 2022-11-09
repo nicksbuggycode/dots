@@ -35,7 +35,7 @@ if b is not None:
     st.write("The contents of your csv file are displayed below:")
     string_data = stringio.read()
     st.write(string_data)
-    splitdata = [i for i in string_data.split("\n") if len(i) > 0]
+    splitdata = [i for i in string_data.split("&&&") if len(i) > 0]
     dispdata = [i.split(",") for i in splitdata]
     st.table(dispdata)
     with BytesIO() as buffer:
@@ -57,9 +57,9 @@ if b is not None:
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
         )
-    
+
     st.write("CSV parsing try")
-    #parse csv
+    # parse csv
     reader = csv.reader("".join(string_data), delimiter=",")
     for row in reader:
         print(row)
