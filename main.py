@@ -17,6 +17,9 @@ def legalizer(s: str) -> str:
     dct["?"] = "{qstmrk}"
     dct["*"] = "{star}"
     dct[";"] = "{semi}"
+    dct["\n"] = "{newline}"
+    dct["\r"] = "{return}"
+    dct["\t"] = "{tab}"
     for k, v in dct.items():
         if k in s:
             s = s.replace(k, v)
@@ -44,7 +47,9 @@ if b is not None:
             for i in splitdata[1:]:
                 name = f"{legalizer(i).strip()}"
                 try:
-                    Ldesc, Ldotphrase, Lfulltxt, Lcat, Lauthor, discard = name.split(",")
+                    Ldesc, Ldotphrase, Lfulltxt, Lcat, Lauthor, discard = name.split(
+                        ","
+                    )
                     desc, dotphrase, fulltxt, cat, author, discard = i.split(",")
                     contents = f"{desc}\n{dotphrase}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
                     dotFilename = f"Desc = {Ldesc}; Dotphrase = {Ldotphrase}; Fulltext = {Lfulltxt}; Cat = {Lcat}; Authr = {Lauthor}.bstr"
@@ -57,7 +62,6 @@ if b is not None:
         btn = st.download_button(
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
         )
-
 
 
 st.write("Enjoy!")
