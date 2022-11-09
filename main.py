@@ -10,7 +10,7 @@ def legalizer(s: str) -> str:
     dct["<"] = "{less}"
     dct[">"] = "{greater}"
     dct[":"] = "{colon}"
-    dct['""'] = "{quote}"
+    dct['"'] = "{quote}"
     dct["/"] = "{fslash}"
     dct["\\"] = "{bslash}"
     dct["|"] = "{pipe}"
