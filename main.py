@@ -51,7 +51,6 @@ if b is not None:
                         ","
                     )
                     desc, dotphrase, fulltxt, cat, author, discard = i.split(",")
-                    st.write(dotphrase.)
                     dpContent = dotphrase.replace(r"\n","{Lbreak}")
                     contents = f"{desc}\n{dpContent}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
                     dotFilename = f"Desc = {Ldesc}; Dotphrase = {Ldotphrase}; Fulltext = {Lfulltxt}; Cat = {Lcat}; Authr = {Lauthor}.bstr"
