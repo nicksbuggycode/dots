@@ -58,11 +58,6 @@ if b is not None:
             label="Download ZIP", data=buffer, file_name="file.zip"  # Download buffer
         )
 
-    st.write("CSV parsing try")
-    # parse csv
-    reader = csv.reader("".join(string_data), delimiter=",")
-    for row in reader:
-        print(row)
-        st.write(row)
+
 
 st.write("Enjoy!")
