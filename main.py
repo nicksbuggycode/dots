@@ -63,6 +63,6 @@ if b is not None:
     #parse csv
     reader = csv.reader(stringio, delimiter=",", quotechar='"')
     for row in reader:
-        st.table(row)
+        st.write(row)
 
 st.write("Enjoy!")
