@@ -54,7 +54,7 @@ if b is not None:
                     contents = f"{desc}\n{dotphrase}\n{fulltxt}\n{cat}\n{author}\n{20220415102629}"
                     dotFilename = f"Desc = {Ldesc}; Dotphrase = {Ldotphrase}; Fulltext = {Lfulltxt}; Cat = {Lcat}; Authr = {Lauthor}.bstr"
                     st.write(dotFilename)
-                    zip.writestr(dotFilename[:24], contents)
+                    zip.writestr(dotFilename, contents)
                 except:
                     st.write(f"couldn't format {i}")
                     continue
