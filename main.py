@@ -28,9 +28,8 @@ st.header("Batch Dot Phrase Wizard")
 b = st.file_uploader("Upload a csv file")
 
 if b is not None:
-    bytes_data = b.read()
     # To convert to a string based IO:
-    stringio = StringIO(b.read().decode("utf-8"))
+    stringio = StringIO(b.get_value().decode("utf-8"))
 
     # To read file as string:
     st.write("The contents of your csv file are displayed below:")
